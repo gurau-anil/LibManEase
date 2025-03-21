@@ -2,7 +2,7 @@
 
 ## Introduction
 
-LibManEase is a robust application built using Onion Architecture, a software design pattern that emphasizes separation of concerns and scalability. This architecture pattern is designed to keep the core business logic at the center, surrounded by layers of infrastructure and presentation logic.
+LibManEase is a basic library management application built using Onion Architecture, a software design pattern that emphasizes separation of concerns and scalability. This architecture pattern is designed to keep the core business logic at the center, surrounded by layers of infrastructure and presentation logic.
 
 ## Onion Architecture Overview
 
