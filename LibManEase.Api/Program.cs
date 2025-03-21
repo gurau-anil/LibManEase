@@ -1,6 +1,10 @@
+using LibManEase.Application;
+using LibManEase.DependencyResolver;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Both ApplicationLayer Dependencies and PresentationLayer dependencies are registered in the LibManEase.DependencyInjection project
+builder.Services.SetupServiceCollection(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
