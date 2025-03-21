@@ -56,17 +56,6 @@ This layer is responsible for user interactions and isolates the core business l
 
 This project ensures loose coupling between layers by managing dependencies.
 
-graph TD
-A[Presentation Layer] --> B[Application Layer]
-A --> C[Domain Layer]
-B --> C
-D[Infrastructure Layer] --> B
-D --> C
-E[Dependency Resolver] --> A
-E --> B
-E --> C
-E --> D
-
 
 ## Best Practices
 
