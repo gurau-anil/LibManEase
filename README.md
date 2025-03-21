@@ -14,7 +14,7 @@ Onion Architecture is structured in layers, with each layer having a specific re
 - **Presentation Layer**: Handles user interactions.
 - **Dependency Resolver**: Manages dependency injection.
 
-### Onion Architecture Layers
+### Onion Architecture Layers of LisManEase project
 
 #### 1. Domain Layer
 
