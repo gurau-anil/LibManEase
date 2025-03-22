@@ -9,7 +9,8 @@ LibManEase is a basic library management application built using Onion Architect
 Onion Architecture is structured in layers, with each layer having a specific responsibility:
 
 - **Domain Layer**: Represents the core business logic.
-- **Application Layer**: Contains interfaces and logic for interacting with the domain.
+- **Application Layer Abstraction**: Contains interfaces for the Application Layer.
+- **Application Layer Implementation**: Contains implementations of the Application abstraction.
 - **Infrastructure Layer**: Implements interfaces defined in the application layer.
 - **Presentation Layer**: Handles user interactions.
 - **Dependency Resolver**: Manages dependency injection.
