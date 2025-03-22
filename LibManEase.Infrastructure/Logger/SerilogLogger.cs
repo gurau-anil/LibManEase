@@ -1,4 +1,4 @@
-﻿using LibManEase.Application.Contracts.Logging;
+﻿using LibManEase.Application.Abstraction.Contracts.Logging;
 using Serilog;
 
 

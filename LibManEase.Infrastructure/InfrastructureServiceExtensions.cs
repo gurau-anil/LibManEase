@@ -1,4 +1,4 @@
-﻿using LibManEase.Application.Contracts.Logging;
+﻿using LibManEase.Application.Abstraction.Contracts.Logging;
 using LibManEase.Domain.Contracts;
 using LibManEase.Domain.Contracts.Base;
 using LibManEase.Domain.Entities;
