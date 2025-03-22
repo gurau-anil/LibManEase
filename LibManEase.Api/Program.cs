@@ -1,10 +1,15 @@
-using LibManEase.Application;
 using LibManEase.DependencyResolver;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
-// Both ApplicationLayer Dependencies and PresentationLayer dependencies are registered in the LibManEase.DependencyInjection project
-builder.Services.SetupServiceCollection(builder.Configuration);
+// Resolve All Application layer dependencies via DependencyResolver or we can be Add ApplicationServices
+builder.Services.ResolveApplicationDependency();
+
+builder.Services.ResolveInfrastructureDependency(configuration, logConfig =>
+{
+    logConfig.LogFilePath = configuration.GetValue<string>("Logging:LogPath") ?? String.Empty;
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

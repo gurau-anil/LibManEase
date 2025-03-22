@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LibManEase.Application.Contracts.Logging;
 using LibManEase.Application.Contracts.Services;
 using LibManEase.Application.DTOs;
 using LibManEase.Domain.Contracts.Base;
@@ -15,11 +16,13 @@ namespace LibManEase.Application.Services
     {
         protected readonly IRepository<TEntity, int> _repository;
         protected readonly IMapper _mapper;
+        protected readonly IAppLogger _logger;
 
-        public GenericService(IRepository<TEntity, int> repository, IMapper mapper)
+        public GenericService(IRepository<TEntity, int> repository, IMapper mapper, IAppLogger logger)
         {
             _repository = repository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public virtual async Task<TDto> GetByIdAsync(int id)
@@ -30,7 +33,9 @@ namespace LibManEase.Application.Services
 
         public virtual async Task<IEnumerable<TDto>> GetAllAsync()
         {
+            _logger.LogInformation($"Fetching {typeof(TDto).Name}");
             var entities = await _repository.GetAllAsync();
+            _logger.LogInformation($"Fetching {typeof(TDto).Name} completed");
             return _mapper.Map<IEnumerable<TDto>>(entities);
         }
 

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LibManEase.Application.Contracts.Logging;
 using LibManEase.Application.Contracts.Services;
 using LibManEase.Application.DTOs;
 using LibManEase.Domain.Contracts;
@@ -9,11 +10,12 @@ namespace LibManEase.Application.Services
     public class MemberService : GenericService<Member, MemberDto, CreateMemberDto, UpdateMemberDto>, IMemberService
     {
         private readonly IMemberRepository _memberRepository;
-
-        public MemberService(IMemberRepository memberRepository, IMapper mapper)
-            : base(memberRepository, mapper)
+        private readonly IAppLogger _logger;
+        public MemberService(IMemberRepository memberRepository, IMapper mapper, IAppLogger logger)
+            : base(memberRepository, mapper, logger)
         {
             _memberRepository = memberRepository;
+            _logger = logger;
         }
 
         public async Task<MemberDto> GetByEmailAsync(string email)

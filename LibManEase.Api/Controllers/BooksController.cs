@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using LibManEase.Application.Contracts.Logging;
 using LibManEase.Application.Contracts.Services;
 using LibManEase.Application.DTOs;
 using Microsoft.AspNetCore.Mvc;
@@ -9,16 +10,20 @@ namespace LibManEase.Api.Controllers
     {
         private readonly IBookService _bookService;
         private readonly IValidator<CreateBookDto> _validator;
-        public BooksController(IBookService bookService, IValidator<CreateBookDto> validator)
+        private readonly IAppLogger _logger;
+        public BooksController(IBookService bookService, IValidator<CreateBookDto> validator, IAppLogger logger)
         {
             _bookService = bookService;
             _validator = validator;
+            _logger = logger;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<BookDto>>> GetAllBooks()
         {
+            _logger.LogInformation("Entry -> Controller: BookController, Method: GetAllBooks");
             var books = await _bookService.GetAllAsync();
+            _logger.LogInformation("Exit -> Controller: BookController, Method: GetAllBooks");
             return Ok(books);
         }
 
@@ -50,9 +55,11 @@ namespace LibManEase.Api.Controllers
             {
                 return BadRequest();
             }
-
-            await _bookService.UpdateAsync(updateBookDto);
-            return NoContent();
+            return await ValidateAndExecuteAsync(updateBookDto, async () =>
+            {
+                await _bookService.UpdateAsync(updateBookDto);
+                return NoContent();
+            });
         }
 
         [HttpDelete("{id}")]

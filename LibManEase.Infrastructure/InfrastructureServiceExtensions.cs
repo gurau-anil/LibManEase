@@ -1,17 +1,19 @@
-﻿using LibManEase.Domain.Contracts;
+﻿using LibManEase.Application.Contracts.Logging;
+using LibManEase.Domain.Contracts;
 using LibManEase.Domain.Contracts.Base;
 using LibManEase.Domain.Entities;
 using LibManEase.Infrastructure.Data;
+using LibManEase.Infrastructure.Logger;
 using LibManEase.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection.Metadata;
+using Serilog;
 
 namespace LibManEase.Infrastructure
 {
     public static class InfrastructureServiceExtensions
     {
-        public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, string connectionString)
+        public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, string connectionString, Action<SerilogConfiguration> logConfig = null)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
@@ -45,7 +47,6 @@ namespace LibManEase.Infrastructure
                         await context.SaveChangesAsync();
                     }
                 });
-
             });
 
             //services.AddScoped(typeof(IRepository<,>), typeof(Repository<>));
@@ -54,7 +55,26 @@ namespace LibManEase.Infrastructure
             services.AddScoped<IMemberRepository, MemberRepository>();
             services.AddScoped<ILoanRepository, LoanRepository>();
 
+            SerilogConfiguration configuration = new SerilogConfiguration();
+            logConfig?.Invoke(configuration);
+
+            services.AddSingleton<IAppLogger>(sp => new SerilogLogger(ConfigureLogger(configuration)));
+
             return services;
+        }
+
+        private static Serilog.ILogger ConfigureLogger(SerilogConfiguration configuration)
+        {
+            var loggerConfig = new LoggerConfiguration()
+                .MinimumLevel.Debug() // Set minimum logging level
+                .WriteTo.Console();
+
+            if (!String.IsNullOrEmpty(configuration.LogFilePath))
+            {
+                loggerConfig.WriteTo.File(configuration.LogFilePath, rollingInterval: configuration.RollingInterval, retainedFileCountLimit: configuration.RetainedFileCountLimit);
+            }
+            return loggerConfig.CreateLogger();
+
         }
     }
 }
