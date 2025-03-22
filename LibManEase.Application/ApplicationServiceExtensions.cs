@@ -1,14 +1,9 @@
-﻿using LibManEase.Application.Contracts.Services;
-using LibManEase.Application.Services;
+﻿using LibManEase.Application.Abstraction.Contracts.Services;
+using LibManEase.Application.Implementation.Services;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LibManEase.Application
+namespace LibManEase.Application.Implementation
 {
     public static class ApplicationServiceExtensions
     {
@@ -18,7 +13,6 @@ namespace LibManEase.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             //services.AddScoped(typeof(IGenericService<,,>), typeof(GenericService<,,,>));
-
 
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<ILoanService, LoanService>();

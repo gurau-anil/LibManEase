@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using LibManEase.Application.DTOs;
+using LibManEase.Application.Abstraction.DTOs;
 using LibManEase.Domain.Entities;
 
-namespace LibManEase.Application.Mappings
+namespace LibManEase.Application.Implementation.Mappings
 {
-    public class MappingProfile: Profile
+    internal class MappingProfile: Profile
     {
         public MappingProfile()
         {

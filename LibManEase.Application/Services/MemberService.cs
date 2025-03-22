@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using LibManEase.Application.Contracts.Logging;
-using LibManEase.Application.Contracts.Services;
-using LibManEase.Application.DTOs;
+using LibManEase.Application.Abstraction.Contracts.Logging;
+using LibManEase.Application.Abstraction.Contracts.Services;
+using LibManEase.Application.Abstraction.DTOs;
 using LibManEase.Domain.Contracts;
 using LibManEase.Domain.Entities;
 
-namespace LibManEase.Application.Services
+namespace LibManEase.Application.Implementation.Services
 {
-    public class MemberService : GenericService<Member, MemberDto, CreateMemberDto, UpdateMemberDto>, IMemberService
+    internal class MemberService : GenericService<Member, MemberDto, CreateMemberDto, UpdateMemberDto>, IMemberService
     {
         private readonly IMemberRepository _memberRepository;
         private readonly IAppLogger _logger;

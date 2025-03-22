@@ -1,32 +1,9 @@
 ﻿using FluentValidation;
+using LibManEase.Application.Abstraction.DTOs;
 
-namespace LibManEase.Application.DTOs
+namespace LibManEase.Application.Implementation.Validators
 {
-    public class BookDto : BaseDto
-    {
-        public string Title { get; set; }
-        public string ISBN { get; set; }
-        public int PublicationYear { get; set; }
-        public bool IsAvailable { get; set; }
-    }
-
-    public class CreateBookDto
-    {
-        public string Title { get; set; }
-        public string ISBN { get; set; }
-        public int PublicationYear { get; set; }
-    }
-
-    public class UpdateBookDto : BaseDto
-    {
-        public string Title { get; set; }
-        public string ISBN { get; set; }
-        public int PublicationYear { get; set; }
-        public bool IsAvailable { get; set; }
-    }
-
-    #region validators
-    public class CreateBookDtoValidator : AbstractValidator<CreateBookDto>
+    internal class CreateBookDtoValidator : AbstractValidator<CreateBookDto>
     {
         public CreateBookDtoValidator()
         {
@@ -37,7 +14,7 @@ namespace LibManEase.Application.DTOs
         }
     }
 
-    public class UpdateBookDtoValidator : AbstractValidator<UpdateBookDto>
+    internal class UpdateBookDtoValidator : AbstractValidator<UpdateBookDto>
     {
         public UpdateBookDtoValidator()
         {
@@ -48,5 +25,4 @@ namespace LibManEase.Application.DTOs
             RuleFor(x => x.PublicationYear).InclusiveBetween(1000, DateTime.Now.Year);
         }
     }
-    #endregion
 }

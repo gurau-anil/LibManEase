@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using LibManEase.Application.Contracts.Logging;
-using LibManEase.Application.Contracts.Services;
-using LibManEase.Application.DTOs;
+using LibManEase.Application.Abstraction.Contracts.Logging;
+using LibManEase.Application.Abstraction.Contracts.Services;
+using LibManEase.Application.Abstraction.DTOs;
 using LibManEase.Domain.Contracts;
 using LibManEase.Domain.Entities;
 
-namespace LibManEase.Application.Services
+namespace LibManEase.Application.Implementation.Services
 {
-    public class BookService : GenericService<Book, BookDto, CreateBookDto, UpdateBookDto>, IBookService
+    internal class BookService : GenericService<Book, BookDto, CreateBookDto, UpdateBookDto>, IBookService
     {
         private readonly IBookRepository _bookRepository;
         protected readonly IAppLogger _logger;
