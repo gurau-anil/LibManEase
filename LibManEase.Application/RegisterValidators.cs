@@ -1,10 +1,11 @@
 ﻿using FluentValidation;
-using LibManEase.Application.DTOs;
+using LibManEase.Application.Abstraction.DTOs;
+using LibManEase.Application.Implementation.Validators;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace LibManEase.Application
+namespace LibManEase.Application.Implementation
 {
-    public static class ValidationRegister
+    internal static class ValidationRegister
     {
         public static void RegisterValidators(this IServiceCollection services)
         {

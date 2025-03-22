@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "presentation", "presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibManEase.Domain", "LibManEase.Domain\LibManEase.Domain.csproj", "{E39E96FE-8F78-4257-8132-80A55212E503}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibManEase.Application", "LibManEase.Application\LibManEase.Application.csproj", "{5ECECE6F-0D72-457E-883C-23DC49412ED6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibManEase.Application.Implementation", "LibManEase.Application\LibManEase.Application.Implementation.csproj", "{5ECECE6F-0D72-457E-883C-23DC49412ED6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibManEase.Infrastructure", "LibManEase.Infrastructure\LibManEase.Infrastructure.csproj", "{EFE1E3AC-5255-4CD8-9E01-231B7F21199E}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "LibManEase.Client", "LibManEase.Client\LibManEase.Client.esproj", "{FCEDB758-CCA1-4E13-9DD0-27A4CFD110B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibManEase.DependencyResolver", "LibManEase.DependencyInjection\LibManEase.DependencyResolver.csproj", "{C3845254-A441-4131-A9AA-EB343B27C207}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibManEase.Application.Abstraction", "LibManEase.Application.Abstraction\LibManEase.Application.Abstraction.csproj", "{17AE4619-9310-4137-B942-CC34AB4DA328}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{C3845254-A441-4131-A9AA-EB343B27C207}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3845254-A441-4131-A9AA-EB343B27C207}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3845254-A441-4131-A9AA-EB343B27C207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17AE4619-9310-4137-B942-CC34AB4DA328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17AE4619-9310-4137-B942-CC34AB4DA328}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17AE4619-9310-4137-B942-CC34AB4DA328}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17AE4619-9310-4137-B942-CC34AB4DA328}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,5 +81,6 @@ Global
 		{9B4CDC42-97C4-4FFF-97F6-6CB6D2B79661} = {054A4784-E9ED-4DF2-837B-DC972E96016E}
 		{FCEDB758-CCA1-4E13-9DD0-27A4CFD110B7} = {E2D0CD6F-B7F6-4095-A1BD-B4DDA14A25B5}
 		{C3845254-A441-4131-A9AA-EB343B27C207} = {054A4784-E9ED-4DF2-837B-DC972E96016E}
+		{17AE4619-9310-4137-B942-CC34AB4DA328} = {E781146D-2200-4D0B-B0BD-4373A10524D4}
 	EndGlobalSection
 EndGlobal

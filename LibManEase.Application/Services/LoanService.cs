@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using LibManEase.Application.Contracts.Logging;
-using LibManEase.Application.Contracts.Services;
-using LibManEase.Application.DTOs;
+using LibManEase.Application.Abstraction.Contracts.Logging;
+using LibManEase.Application.Abstraction.Contracts.Services;
+using LibManEase.Application.Abstraction.DTOs;
 using LibManEase.Domain.Contracts;
 using LibManEase.Domain.Entities;
 
-namespace LibManEase.Application.Services
+namespace LibManEase.Application.Implementation.Services
 {
-    public class LoanService : GenericService<Loan, LoanDto, CreateLoanDto, UpdateLoanDto>, ILoanService
+    internal class LoanService : GenericService<Loan, LoanDto, CreateLoanDto, UpdateLoanDto>, ILoanService
     {
         private readonly ILoanRepository _loanRepository;
         private readonly IBookRepository _bookRepository;

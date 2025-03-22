@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LibManEase.Application\LibManEase.Application.csproj" />
+    <ProjectReference Include="..\LibManEase.Application.Abstraction\LibManEase.Application.Abstraction.csproj" />
     <ProjectReference Include="..\LibManEase.Domain\LibManEase.Domain.csproj" />
   </ItemGroup>
 

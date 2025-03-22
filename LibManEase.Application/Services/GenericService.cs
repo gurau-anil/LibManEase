@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
-using LibManEase.Application.Contracts.Logging;
-using LibManEase.Application.Contracts.Services;
-using LibManEase.Application.DTOs;
+using LibManEase.Application.Abstraction.Contracts.Logging;
+using LibManEase.Application.Abstraction.Contracts.Services;
+using LibManEase.Application.Abstraction.DTOs;
 using LibManEase.Domain.Contracts.Base;
 using LibManEase.Domain.Entities.Base;
 
 
-namespace LibManEase.Application.Services
+namespace LibManEase.Application.Implementation.Services
 {
-    public class GenericService<TEntity, TDto, TCreateDto, TUpdateDto> : IGenericService<TDto, TCreateDto, TUpdateDto>
+    internal class GenericService<TEntity, TDto, TCreateDto, TUpdateDto> : IGenericService<TDto, TCreateDto, TUpdateDto>
         where TEntity : BaseEntity<int>
         where TDto : BaseDto
         where TCreateDto : class

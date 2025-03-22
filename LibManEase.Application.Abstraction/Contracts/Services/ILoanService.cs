@@ -1,6 +1,6 @@
-﻿using LibManEase.Application.DTOs;
+﻿using LibManEase.Application.Abstraction.DTOs;
 
-namespace LibManEase.Application.Contracts.Services
+namespace LibManEase.Application.Abstraction.Contracts.Services
 {
     public interface ILoanService : IGenericService<LoanDto, CreateLoanDto, UpdateLoanDto>
     {
@@ -8,7 +8,4 @@ namespace LibManEase.Application.Contracts.Services
         Task ReturnBookAsync(int loanId);
         Task<IEnumerable<LoanDto>> GetOverdueLoansAsync();
     }
-
-
-
 }

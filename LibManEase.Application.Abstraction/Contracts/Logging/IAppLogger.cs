@@ -1,4 +1,4 @@
-﻿namespace LibManEase.Application.Contracts.Logging
+﻿namespace LibManEase.Application.Abstraction.Contracts.Logging
 {
     public interface IAppLogger
     {

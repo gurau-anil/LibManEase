@@ -1,6 +1,6 @@
-﻿using LibManEase.Application.DTOs;
+﻿using LibManEase.Application.Abstraction.DTOs;
 
-namespace LibManEase.Application.Contracts.Services
+namespace LibManEase.Application.Abstraction.Contracts.Services
 {
     public interface IGenericService<TDto, TCreateDto, TUpdateDto>
     where TDto : BaseDto
@@ -13,7 +13,4 @@ namespace LibManEase.Application.Contracts.Services
         Task UpdateAsync(TUpdateDto updateDto);
         Task DeleteAsync(int id);
     }
-
-
-
 }

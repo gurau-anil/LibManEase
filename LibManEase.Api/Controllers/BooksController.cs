@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using LibManEase.Application.Contracts.Logging;
-using LibManEase.Application.Contracts.Services;
-using LibManEase.Application.DTOs;
+using LibManEase.Application.Abstraction.Contracts.Logging;
+using LibManEase.Application.Abstraction.Contracts.Services;
+using LibManEase.Application.Abstraction.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibManEase.Api.Controllers
