@@ -70,6 +70,7 @@ This project ensures loose coupling between layers by managing dependencies.
 - **Presentation** (Presentation Layer)
   - **APIs**
   - **Client App**
+![image](https://github.com/user-attachments/assets/aa812fef-d05b-49d9-bf0f-b4b6d7262b0d)
 
 ## Best Practices
 
