@@ -9,9 +9,9 @@ LibManEase is a basic library management application built using Onion Architect
 Onion Architecture is structured in layers, with each layer having a specific responsibility:
 
 - **Domain Layer**: Represents the core business logic.
-- **Application Layer Abstraction**: Contains interfaces for the Application Layer.
-- **Application Layer Implementation**: Contains implementations of the Application abstraction.
-- **Infrastructure Layer**: Implements interfaces defined in the application layer.
+- **Application Layer Abstraction**: Defines interfaces and related data transfer objects for business logic services, acting as a contract between the core domain and outer layers.
+- **Application Layer Implementation**: Contains actual implementations of application abstraction, housing the core business logic, validations, and service implementations.
+- **Infrastructure Layer**: Implements interfaces defined in the application abstraction layer.
 - **Presentation Layer**: Handles user interactions.
 - **Dependency Resolver**: Manages dependency injection.
 
@@ -25,10 +25,12 @@ Onion Architecture is structured in layers, with each layer having a specific re
 This layer is the core of the application and contains no dependencies on other layers.
 
 #### 2. Application Layer
-
+##### Application Abstraction
 - **DTOs (Data Transfer Objects)**: Used to transfer data between layers.
+- **Service Interfaces**: Define business logic services.
+##### Application Implementation
 - **Fluent Validations**: Implement validation logic for input data.
-- **Service Interfaces and Implementations**: Define and implement business logic services.
+- **Service Implementations**: Implement business logic services.
 - **Mappings (AutoMapper)**: Configure mappings between DTOs and entities.
 - **Validators Registration**: Register validators for validation.
 - **ApplicationServiceExtensions**: Extend service functionality.
@@ -61,9 +63,11 @@ This project ensures loose coupling between layers by managing dependencies.
 - **Core**
   - **Domain** (Domain layer)
   - **Application** (Application layer)
-- **Infrastructure**
+    - **Applicaion Abstraction**
+    - **Application Implementation**
+- **Infrastructure** (Infrastructure Layer)
   - **Infrastructure Layer**
-- **Presentation**
+- **Presentation** (Presentation Layer)
   - **APIs**
   - **Client App**
 
