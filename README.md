@@ -15,7 +15,6 @@ Onion Architecture is structured in layers, with each layer having a specific re
 - **Dependency Resolver**: Manages dependency injection.
   
 ### Project Folder Structure
-## src
 - **Core**
   - **Domain** (Domain layer)
   - **Application** (Application layer)
