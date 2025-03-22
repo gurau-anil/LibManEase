@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LibManEase.Application\LibManEase.Application.csproj" />
+    <ProjectReference Include="..\LibManEase.Application\LibManEase.Application.Implementation.csproj" />
     <ProjectReference Include="..\LibManEase.Infrastructure\LibManEase.Infrastructure.csproj" />
   </ItemGroup>
 

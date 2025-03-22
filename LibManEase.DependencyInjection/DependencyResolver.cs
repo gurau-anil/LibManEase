@@ -1,4 +1,4 @@
-﻿using LibManEase.Application;
+﻿using LibManEase.Application.Implementation;
 using LibManEase.Infrastructure;
 using LibManEase.Infrastructure.Logger;
 using Microsoft.Extensions.Configuration;
