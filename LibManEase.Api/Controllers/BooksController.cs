@@ -50,9 +50,11 @@ namespace LibManEase.Api.Controllers
             {
                 return BadRequest();
             }
-
-            await _bookService.UpdateAsync(updateBookDto);
-            return NoContent();
+            return await ValidateAndExecuteAsync(updateBookDto, async () =>
+            {
+                await _bookService.UpdateAsync(updateBookDto);
+                return NoContent();
+            });
         }
 
         [HttpDelete("{id}")]

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibManEase.Infrastructure.Repositories
 {
-    public class Repository<TEntity, TKey> : IRepository<TEntity, int> where TEntity : BaseEntity<int>
+    internal class Repository<TEntity, TKey> : IRepository<TEntity, int> where TEntity : BaseEntity<int>
     {
         private readonly ApplicationDbContext _dbContext;
 

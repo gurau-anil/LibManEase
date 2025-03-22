@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LibManEase.Application.Contracts.Logging;
 using LibManEase.Application.Contracts.Services;
 using LibManEase.Application.DTOs;
 using LibManEase.Domain.Contracts;
@@ -11,13 +12,14 @@ namespace LibManEase.Application.Services
         private readonly ILoanRepository _loanRepository;
         private readonly IBookRepository _bookRepository;
         private readonly IMemberRepository _memberRepository;
-
-        public LoanService(ILoanRepository loanRepository, IBookRepository bookRepository, IMemberRepository memberRepository, IMapper mapper)
-            : base(loanRepository, mapper)
+        private readonly IAppLogger _logger;
+        public LoanService(ILoanRepository loanRepository, IBookRepository bookRepository, IMemberRepository memberRepository, IMapper mapper, IAppLogger logger)
+            : base(loanRepository, mapper, logger)
         {
             _loanRepository = loanRepository;
             _bookRepository = bookRepository;
             _memberRepository = memberRepository;
+            _logger = logger;
         }
 
         public async Task<LoanDto> CreateLoanAsync(int bookId, int memberId, DateTime dueDate)

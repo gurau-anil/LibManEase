@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibManEase.Infrastructure.Repositories
 {
-    public class MemberRepository : Repository<Member, int>, IMemberRepository
+    internal class MemberRepository : Repository<Member, int>, IMemberRepository
     {
         private readonly ApplicationDbContext _dbContext;
 
