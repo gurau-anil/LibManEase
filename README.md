@@ -13,6 +13,17 @@ Onion Architecture is structured in layers, with each layer having a specific re
 - **Infrastructure Layer**: Implements interfaces defined in the application layer.
 - **Presentation Layer**: Handles user interactions.
 - **Dependency Resolver**: Manages dependency injection.
+  
+### Project Folder Structure
+## src
+- **Core**
+  - **Domain** (Domain layer)
+  - **Application** (Application layer)
+- **Infrastructure**
+  - **Infrastructure Layer**
+- **Presentation**
+  - **APIs**
+  - **Client App**
 
 ### Onion Architecture Layers of LisManEase project
 
