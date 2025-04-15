@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Loan\**" />
+    <Compile Remove="Features\Member\**" />
+    <EmbeddedResource Remove="Features\Loan\**" />
+    <EmbeddedResource Remove="Features\Member\**" />
+    <None Remove="Features\Loan\**" />
+    <None Remove="Features\Member\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LibManEase.Application.Abstraction\LibManEase.Application.Abstraction.csproj" />
     <ProjectReference Include="..\LibManEase.Domain\LibManEase.Domain.csproj" />
   </ItemGroup>
@@ -14,6 +23,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="14.0.0" />
     <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="MediatR" Version="12.5.0" />
   </ItemGroup>
 
 </Project>

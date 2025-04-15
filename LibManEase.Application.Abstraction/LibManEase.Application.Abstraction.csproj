@@ -7,6 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Book\**" />
+    <Compile Remove="Features\Loan\**" />
+    <Compile Remove="Features\Member\**" />
+    <EmbeddedResource Remove="Features\Book\**" />
+    <EmbeddedResource Remove="Features\Loan\**" />
+    <EmbeddedResource Remove="Features\Member\**" />
+    <None Remove="Features\Book\**" />
+    <None Remove="Features\Loan\**" />
+    <None Remove="Features\Member\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.5.0" />
   </ItemGroup>
 
 </Project>

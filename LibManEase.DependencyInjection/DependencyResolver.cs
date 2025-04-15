@@ -1,4 +1,5 @@
 ﻿using LibManEase.Application.Implementation;
+using LibManEase.Application.Implementation.Features.Books.Queries;
 using LibManEase.Infrastructure;
 using LibManEase.Infrastructure.Logger;
 using Microsoft.Extensions.Configuration;
@@ -12,6 +13,8 @@ namespace LibManEase.DependencyResolver
         {
             //Add Application Services
             services.AddApplicationServices();
+            services.AddMediatR(config =>
+                config.RegisterServicesFromAssembly(typeof(GetBookByIdHandler).Assembly));
         }
 
         public static void ResolveInfrastructureDependency(this IServiceCollection services, IConfiguration configuration, Action<SerilogConfiguration> logConfig = null)

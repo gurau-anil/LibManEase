@@ -2,6 +2,8 @@
 using LibManEase.Application.Abstraction.Contracts.Logging;
 using LibManEase.Application.Abstraction.Contracts.Services;
 using LibManEase.Application.Abstraction.DTOs;
+using LibManEase.Application.Abstraction.Features.Books.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibManEase.Api.Controllers
@@ -11,11 +13,13 @@ namespace LibManEase.Api.Controllers
         private readonly IBookService _bookService;
         private readonly IValidator<CreateBookDto> _validator;
         private readonly IAppLogger _logger;
-        public BooksController(IBookService bookService, IValidator<CreateBookDto> validator, IAppLogger logger)
+        private readonly IMediator _mediator;
+        public BooksController(IBookService bookService, IValidator<CreateBookDto> validator, IAppLogger logger, IMediator mediator)
         {
             _bookService = bookService;
             _validator = validator;
             _logger = logger;
+            _mediator = mediator;
         }
 
         [HttpGet]
@@ -30,11 +34,12 @@ namespace LibManEase.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<BookDto>> GetBook(int id)
         {
-            var book = await _bookService.GetByIdAsync(id);
-            if (book == null)
-            {
-                return NotFound();
-            }
+            //var book = await _bookService.GetByIdAsync(id);
+            //if (book == null)
+            //{
+            //    return NotFound();
+            //}
+            var book = await _mediator.Send(new GetBookById(id));
             return Ok(book);
         }
 
