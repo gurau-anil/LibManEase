@@ -26,7 +26,8 @@ namespace LibManEase.Api.Controllers
         public async Task<ActionResult<IEnumerable<BookDto>>> GetAllBooks()
         {
             _logger.LogInformation("Entry -> Controller: BookController, Method: GetAllBooks");
-            var books = await _bookService.GetAllAsync();
+            //var books = await _bookService.GetAllAsync();
+            var books = await _mediator.Send(new GetBooks());
             _logger.LogInformation("Exit -> Controller: BookController, Method: GetAllBooks");
             return Ok(books);
         }
