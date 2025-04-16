@@ -8,5 +8,5 @@ using System.Threading.Tasks;
 
 namespace LibManEase.Application.Abstraction.Features.Books.Commands
 {
-    public record CreateBookCommand(CreateBookDto model) : IRequest<int>;
+    public record CreateBookCommand(CreateBookDto model) : IRequest<BookDto>;
 }

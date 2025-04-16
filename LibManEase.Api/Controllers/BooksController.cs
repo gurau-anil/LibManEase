@@ -2,6 +2,7 @@
 using LibManEase.Application.Abstraction.Contracts.Logging;
 using LibManEase.Application.Abstraction.Contracts.Services;
 using LibManEase.Application.Abstraction.DTOs;
+using LibManEase.Application.Abstraction.Features.Books.Commands;
 using LibManEase.Application.Abstraction.Features.Books.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -49,7 +50,8 @@ namespace LibManEase.Api.Controllers
         {
             return await ValidateAndExecuteAsync(createBookDto, async () =>
             {
-                var createdBook = await _bookService.CreateAsync(createBookDto);
+                //var createdBook = await _bookService.CreateAsync(createBookDto);
+                var createdBook = await _mediator.Send(new CreateBookCommand(createBookDto));
                 return CreatedAtAction(nameof(GetBook), new { id = createdBook.Id }, createdBook);
             });
         }
