@@ -2,6 +2,7 @@
 using LibManEase.Application.Abstraction.Contracts.Logging;
 using LibManEase.Application.Abstraction.Contracts.Services;
 using LibManEase.Application.Abstraction.DTOs;
+using LibManEase.Application.Abstraction.Features.Books.Commands;
 using LibManEase.Application.Abstraction.Features.Books.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +27,8 @@ namespace LibManEase.Api.Controllers
         public async Task<ActionResult<IEnumerable<BookDto>>> GetAllBooks()
         {
             _logger.LogInformation("Entry -> Controller: BookController, Method: GetAllBooks");
-            var books = await _bookService.GetAllAsync();
+            //var books = await _bookService.GetAllAsync();
+            var books = await _mediator.Send(new GetBooks());
             _logger.LogInformation("Exit -> Controller: BookController, Method: GetAllBooks");
             return Ok(books);
         }
@@ -48,7 +50,8 @@ namespace LibManEase.Api.Controllers
         {
             return await ValidateAndExecuteAsync(createBookDto, async () =>
             {
-                var createdBook = await _bookService.CreateAsync(createBookDto);
+                //var createdBook = await _bookService.CreateAsync(createBookDto);
+                var createdBook = await _mediator.Send(new CreateBookCommand(createBookDto));
                 return CreatedAtAction(nameof(GetBook), new { id = createdBook.Id }, createdBook);
             });
         }

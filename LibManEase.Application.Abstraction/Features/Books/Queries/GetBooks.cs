@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibManEase.Application.Abstraction.Features.Books.Commands
+namespace LibManEase.Application.Abstraction.Features.Books.Queries
 {
-    public record CreateBookCommand(CreateBookDto model) : IRequest<BookDto>;
+    public record GetBooks: IRequest<IEnumerable<BookDto>>
+    {
+    }
 }
